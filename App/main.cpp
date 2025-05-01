@@ -6,8 +6,8 @@
 
 int main()
 {
-	GLFWwindow* window = nullptr;
-	if (!glfwInit)
+	GLFWwindow* window;
+	if (!glfwInit())
 		return -1;
 
 	window = glfwCreateWindow(1280, 720, "App", NULL, NULL);
