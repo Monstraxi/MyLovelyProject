@@ -1,14 +1,20 @@
 project "App"
     kind "ConsoleApp"
     language "C++"
-    targetdir "bin/%{cfg.buildcfg}"
+
+    targetdir "bin/%{cfg.buildcfg}-%{cfg.platform}"
+    objdir "obj/%{cfg.buildcfg}-%{cfg.platform}"
 
     files { "**.", "**.cpp" }
 
-    filter "configurations:Debug"
-        defines { "DEBUG" }
-        symbols "On"
-    
-    filter "configurations:Release"
-        defines { "NDEBUG" }
-        optimize "On"
+    includedirs {
+        "C:/Personal/Libraries/glfw/include",
+        "C:/VulkanSDK/1.3.296.0/Include"
+    }
+
+    libdirs {
+        "C:/Personal/Libraries/glfw/lib-vc2022",
+        "C:/VulkanSDK/1.3.296.0/Lib"
+    }
+
+    links { "glfw3.lib", "vulkan-1" }
