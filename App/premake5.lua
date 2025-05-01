@@ -1,6 +1,7 @@
 project "App"
     kind "ConsoleApp"
     language "C++"
+    cppdialect "C++20"
 
     targetdir "bin/%{cfg.buildcfg}-%{cfg.platform}"
     objdir "obj/%{cfg.buildcfg}-%{cfg.platform}"
