@@ -1,29 +1,15 @@
 #include <iostream>
+#include <vector>
 
 #define GLFW_INCLUDE_VULKAN
 #include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 
+#include "VulkanApp.h"
+
 int main()
 {
-	GLFWwindow* window;
-	if (!glfwInit())
-		return -1;
+	VulkanApp App;
 
-	window = glfwCreateWindow(1280, 720, "App", NULL, NULL);
-
-	if (!window)
-	{
-		glfwTerminate();
-		return -1;
-	}
-
-	glfwMakeContextCurrent(window);
-
-	while (!glfwWindowShouldClose(window))
-	{
-		glfwPollEvents();
-	}
-
-	glfwTerminate();
+	App.Run();
 }
